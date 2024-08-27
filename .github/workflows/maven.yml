@@ -31,12 +31,3 @@ jobs:
       run: mvn clean && mvn install -Dmvn.test.skip=true
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: build/
-        asset_name: build-artifacts.zip
-        asset_content_type: application/zip
