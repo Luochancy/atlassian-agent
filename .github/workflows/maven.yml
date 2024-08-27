@@ -32,7 +32,7 @@ jobs:
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Zip the Build
-      run: zip -r ${{ secrets.ReleaseZipName }} /home/runner/.m2/repository/io/zhile/crack/atlassian/atlassian-agent/1.0/atlassian-agent-1.0-jar-with-dependencies.jar
+      run: zip -r release.zip /home/runner/.m2/repository/io/zhile/crack/atlassian/atlassian-agent/
       
     - name: Create Release and Upload Release Asset
       uses: softprops/action-gh-release@v1
@@ -44,5 +44,5 @@ jobs:
         draft: false
         prerelease: false
         files: |
-          ${{ secrets.ReleaseZipName }}.zip
+          release.zip
           LICENSE
